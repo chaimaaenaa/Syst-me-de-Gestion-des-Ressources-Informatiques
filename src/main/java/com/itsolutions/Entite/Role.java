@@ -1,10 +1,7 @@
 package com.itsolutions.Entite;
 
 import com.itsolutions.Entite.Utilisateur;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 
 import java.util.Set;
 
@@ -12,7 +9,7 @@ import java.util.Set;
 public class Role {
 
     @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Décommentez cette ligne si vous utilisez une base de données qui supporte l'auto-incrémentation
     private Long id;
 
     private String nom;
@@ -27,7 +24,6 @@ public class Role {
     }
 
     // Getters et Setters
-
     public Long getId() {
         return id;
     }

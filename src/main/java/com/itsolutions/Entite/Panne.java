@@ -21,6 +21,7 @@ public class Panne {
     private Equipment equipment;
 
     public void setId(Long id) {
+
     }
 
     // Getters and Setters

@@ -1,6 +1,6 @@
 package com.itsolutions.Security;
 
-import com.hello_events.Services.UserService;
+import com.itsolutions.Service.UtilisateurService;
 import jakarta.annotation.PostConstruct;
 import org.springframework.boot.web.servlet.filter.OrderedHiddenHttpMethodFilter;
 import org.springframework.context.annotation.Bean;
@@ -11,6 +11,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -19,13 +21,12 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     private final JwtAuthorizationFilter jwtAuthorizationFilter;
-    private final UserService userService;
+    private final UtilisateurService userService;
 
-    public SecurityConfig(JwtAuthorizationFilter jwtAuthorizationFilter, UserService userService) {
+    public SecurityConfig(JwtAuthorizationFilter jwtAuthorizationFilter, UtilisateurService userService) {
         this.jwtAuthorizationFilter = jwtAuthorizationFilter;
         this.userService = userService;
     }
-
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -33,17 +34,13 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/users/register", "/api/users/login").permitAll()
-                        .requestMatchers("/api/users/update", "/api/users/delete/**").hasAnyRole("ADMIN", "USER")
-                        .requestMatchers("/api/users/update").authenticated()
-
+                        .requestMatchers("/api/users/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
-
 
     @Bean
     public OrderedHiddenHttpMethodFilter hiddenHttpMethodFilter() {
@@ -53,10 +50,5 @@ public class SecurityConfig {
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
-    }
-
-    @PostConstruct
-    public void initAdminUser() {
-        userService.createAdminUserIfNotExist();
     }
 }

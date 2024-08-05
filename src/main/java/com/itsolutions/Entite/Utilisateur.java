@@ -1,55 +1,34 @@
 package com.itsolutions.Entite;
 
-import jakarta.persistence.*;
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ManyToMany;
 import java.util.Set;
 
 @Entity
-public class Utilisateur {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    private String nom;
-
-    @Column(unique = true)
+public class Utilisateur extends BaseEntity {
+    private String username;
+    private String password;
     private String email;
 
-    private String motDePasse;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "utilisateur_role",
-            joinColumns = @JoinColumn(name = "utilisateur_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @ManyToMany(fetch = FetchType.LAZY)
     private Set<Role> roles;
 
-    public Utilisateur() {}
 
-    public Utilisateur(String nom, String email, String motDePasse, Set<Role> roles) {
-        this.nom = nom;
-        this.email = email;
-        this.motDePasse = motDePasse;
-        this.roles = roles;
+    public String getUsername() {
+        return username;
     }
 
-    // Getters et Setters
-
-    public Long getId() {
-        return id;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public String getPassword() {
+        return password;
     }
 
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
@@ -58,14 +37,6 @@ public class Utilisateur {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getMotDePasse() {
-        return motDePasse;
-    }
-
-    public void setMotDePasse(String motDePasse) {
-        this.motDePasse = motDePasse;
     }
 
     public Set<Role> getRoles() {
