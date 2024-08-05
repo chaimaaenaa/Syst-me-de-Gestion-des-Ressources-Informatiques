@@ -22,5 +22,8 @@ public class Equipment {
     @OneToMany(mappedBy = "equipment")
     private List<Panne> pannes;
 
+    public void setId(Long id) {
+    }
+
     // Getters and Setters
 }

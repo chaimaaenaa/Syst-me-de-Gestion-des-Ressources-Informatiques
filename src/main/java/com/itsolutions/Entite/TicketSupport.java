@@ -25,6 +25,7 @@ public class TicketSupport {
     private Technicien technicien;
 
     public void setId(Long id) {
+
     }
 
     // Getters and Setters
