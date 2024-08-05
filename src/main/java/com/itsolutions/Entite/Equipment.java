@@ -1,17 +1,26 @@
 package com.itsolutions.Entite;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.itsolutions.enums.EquipmentStatus;
+import jakarta.persistence.*;
+
+import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Equipment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String nom;
     private String type;
-    private String status;
-    // Getters et Setters
+
+    @Enumerated(EnumType.STRING)
+    private EquipmentStatus etat;
+
+    private Date dateAcquisition;
+
+    @OneToMany(mappedBy = "equipment")
+    private List<Panne> pannes;
+
+    // Getters and Setters
 }

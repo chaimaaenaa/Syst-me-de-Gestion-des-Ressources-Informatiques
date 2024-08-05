@@ -7,32 +7,47 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/equipments")
+@RequestMapping("/api/equipment")
 public class EquipmentController {
+
     @Autowired
     private EquipmentService equipmentService;
 
-    @PostMapping
-    public Equipment addEquipment(@RequestBody Equipment equipment) {
-        return equipmentService.saveEquipment(equipment);
-    }
-
     @GetMapping
-    public List<Equipment> getAllEquipments() {
-        return equipmentService.getAllEquipments();
+    public List<Equipment> getAllEquipment() {
+        return equipmentService.getAllEquipment();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Equipment> getEquipmentById(@PathVariable Long id) {
-        Optional<Equipment> equipment = equipmentService.getEquipmentById(id);
-        return equipment.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        return equipmentService.getEquipmentById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PostMapping
+    public Equipment createEquipment(@RequestBody Equipment equipment) {
+        return equipmentService.saveEquipment(equipment);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Equipment> updateEquipment(@PathVariable Long id, @RequestBody Equipment equipment) {
+        return equipmentService.getEquipmentById(id)
+                .map(existingEquipment -> {
+                    equipment.setId(id);
+                    return ResponseEntity.ok(equipmentService.saveEquipment(equipment));
+                })
+                .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")
-    public void deleteEquipment(@PathVariable Long id) {
-        equipmentService.deleteEquipment(id);
+    public ResponseEntity<Void> deleteEquipment(@PathVariable Long id) {
+        if (equipmentService.getEquipmentById(id).isPresent()) {
+            equipmentService.deleteEquipment(id);
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
     }
 }
