@@ -8,6 +8,9 @@ import { TechnicienComponent } from './technicien/technicien.component';
 import { EquipmentComponent } from './equipment/equipment.component';
 import { PanneComponent } from './panne/panne.component';
 import { TicketSupportComponent } from './ticket-support/ticket-support.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { TechnicienDashboardComponent } from './technicien-dashboard/technicien-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { TicketSupportComponent } from './ticket-support/ticket-support.componen
     TechnicienComponent,
     EquipmentComponent,
     PanneComponent,
-    TicketSupportComponent
+    TicketSupportComponent,
+    AdminDashboardComponent,
+    UserDashboardComponent,
+    TechnicienDashboardComponent
   ],
   imports: [
     BrowserModule,

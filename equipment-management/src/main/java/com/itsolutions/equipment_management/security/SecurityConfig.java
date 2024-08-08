@@ -4,6 +4,7 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.boot.web.servlet.filter.OrderedHiddenHttpMethodFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -25,6 +26,8 @@ public class SecurityConfig {
         this.personneService = personneService;
     }
 
+
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -33,11 +36,9 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/users/register", "/api/users/login").permitAll()
                         .requestMatchers("/api/users/delete").hasAnyRole("ADMIN")
-                        .requestMatchers("/api/users/**", "/api/equipements/**", "/api/techniciens/**","/api/pannes/**").hasRole("ADMIN")
-                        .requestMatchers("/api/tickets/create").authenticated()
+                        .requestMatchers("/api/users/**", "/api/equipements/**", "/api/techniciens/**", "/api/pannes/**").hasRole("ADMIN")
                         .requestMatchers("/api/tickets/create").hasRole("USER")
-                        .requestMatchers("/api/pannes/report").hasAnyRole("USER", "ADMIN", "TECHNICIEN")
-                        .requestMatchers("api/panne-equipment/**").hasRole("ADMIN")
+                        .requestMatchers("/api/panne-equipment/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class);

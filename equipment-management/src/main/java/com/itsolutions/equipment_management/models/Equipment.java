@@ -8,9 +8,6 @@ import lombok.Setter;
 
 
 import java.util.List;
-
-
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -30,7 +27,13 @@ public class Equipment {
     @OneToMany(mappedBy = "equipment")
     private List<PanneEquipment> panneEquipments;
 
-    @OneToMany(mappedBy = "equipment")
-    private List<Ticket> tickets;
 
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }

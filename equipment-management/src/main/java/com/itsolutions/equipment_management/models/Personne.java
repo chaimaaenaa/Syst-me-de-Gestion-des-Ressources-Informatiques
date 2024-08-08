@@ -42,7 +42,7 @@ public  abstract  class Personne implements UserDetails {
     @Column(unique = true, nullable = false)
     private String motDePasse;
     private String role;
-    @Column(nullable = false)
+    @Column(name = "username", unique = true, nullable = false)
     private String username;
 
 
@@ -85,11 +85,5 @@ public  abstract  class Personne implements UserDetails {
 
     public boolean hasRole(String role) {
         return roles.contains(role);
-    }
-    public void setEmail(String email) {
-        this.email = email;
-        if (this.username == null) {
-            this.username = email;
-        }
     }
 }
