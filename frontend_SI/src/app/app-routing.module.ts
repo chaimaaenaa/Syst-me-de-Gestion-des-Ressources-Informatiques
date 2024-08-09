@@ -1,21 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UtilisateurComponent } from './utilisateur/utilisateur.component';
-import { TechnicienComponent } from './technicien/technicien.component';
-import { EquipmentComponent } from './equipment/equipment.component';
-import { PanneComponent } from './panne/panne.component';
-import { TicketSupportComponent } from './ticket-support/ticket-support.component';
+import { RegistrationComponent } from './registration/registration.component';
+import {LoginComponent} from "./login/login.component";
+import {UserDashboardComponent} from "./user-dashboard/user-dashboard.component";
+import {AdminDashboardComponent} from "./admin-dashboard/admin-dashboard.component";
+import {TechnicienDashboardComponent} from "./technicien-dashboard/technicien-dashboard.component";
 
 const routes: Routes = [
-  { path: 'utilisateurs', component: UtilisateurComponent },
-  { path: 'techniciens', component: TechnicienComponent },
-  { path: 'equipments', component: EquipmentComponent },
-  { path: 'pannes', component: PanneComponent },
-  { path: 'tickets', component: TicketSupportComponent },
-  { path: '', redirectTo: '/utilisateurs', pathMatch: 'full' }
+  { path: 'register', component: RegistrationComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'user-dashboard', component: UserDashboardComponent },
+  { path: 'admin-dashboard', component: AdminDashboardComponent },
+  { path: 'technicien-dashboard', component: TechnicienDashboardComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' }
+
 ];
 
 @NgModule({
+
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })

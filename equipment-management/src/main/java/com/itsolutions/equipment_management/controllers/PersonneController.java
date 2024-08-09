@@ -45,9 +45,6 @@ public class PersonneController {
             String rawPassword = userRequest.getMotDePasse();
             String encodedPassword = foundUser.getMotDePasse();
 
-            System.out.println("Raw password: " + rawPassword);
-            System.out.println("Encoded password from database: " + encodedPassword);
-
             if (passwordEncoder.matches(rawPassword, encodedPassword)) {
                 String role = foundUser.getRole();
                 String token = jwtAuth.generateToken(foundUser.getEmail(), role);
@@ -63,6 +60,7 @@ public class PersonneController {
         }
         return ResponseEntity.status(401).body("Invalid email or password");
     }
+
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updatePersonne(@PathVariable Long id, @RequestBody Personne updatedPersonne) {
         try {
@@ -72,6 +70,7 @@ public class PersonneController {
             return ResponseEntity.status(404).body("User not found");
         }
     }
+
     @GetMapping("/profile")
     public ResponseEntity<?> getUserProfile() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -89,6 +88,7 @@ public class PersonneController {
             return ResponseEntity.status(404).body("User not found");
         }
     }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable Long id) {
         personneService.deletePersonne(id);
