@@ -1,62 +1,67 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ServicePersonService } from '../ServicePersonService';  // Adjust path as necessary
+import { PersonneService } from '../Service/PersonneService';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-  loginForm: FormGroup = this.fb.group({});
-  constructor(private fb: FormBuilder, private authService: ServicePersonService, private router: Router) {}
+export class LoginComponent {
+  loginForm: FormGroup;
+  errorMessage: string = '';
+  showLoginForm = false; // Contrôle l'affichage du formulaire de connexion
+  showHeart = false; // Contrôle l'affichage de l'icône cœur
 
-  ngOnInit() {
+  constructor(private fb: FormBuilder, private personneService: PersonneService) {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]], // Must be a valid email
-      motDePasse: ['', Validators.required], // Must not be empty
-      type: ['', Validators.required] // Must not be empty
+      email: ['', [Validators.required, Validators.email]],
+      motDePasse: ['', Validators.required],
+      type: ['', Validators.required]
     });
   }
 
-
-
-  onSubmit() {
-    console.log(this.loginForm); // Log the form status
-    console.log(this.loginForm.errors); // Log any errors
+  login(): void {
     if (this.loginForm.valid) {
-      const formValues = this.loginForm.value;
-      this.authService.login(formValues.email, formValues.motDePasse, formValues.type).subscribe(
+      const { email, motDePasse, type } = this.loginForm.value;
+      const loginData = {
+        email: email,
+        motDePasse: motDePasse,
+        type: type
+      };
+      this.personneService.login(loginData).subscribe(
         response => {
-          const userRole = response.role;
-          this.redirectUser(userRole);
+          if (this.mapRoleToType(response.role) !== type) {
+            this.errorMessage = `You are a ${response.role}. Please select the correct user type.`;
+            return;
+          }
+          this.personneService.setToken(response.token);
+          this.personneService.setCurrentUser({
+            email: email,
+            role: response.role,
+            motDePasse: motDePasse,
+            type: type
+          });
+          this.personneService.redirectToDashboard();
         },
         error => {
-          console.error('Login error:', error);
-          alert('Erreur lors de la connexion');
+          console.error('Login error', error);
+          this.errorMessage = 'Invalid credentials. Please try again.';
         }
       );
-    } else {
-      console.log('Form is invalid');
     }
   }
 
-
-  private redirectUser(role: string) {
-    switch(role) {
+  private mapRoleToType(role: string): string {
+    switch (role) {
       case 'ROLE_USER':
-        this.router.navigate(['/user-dashboard']);
-        break;
-      case 'ROLE_ADMIN':
-        this.router.navigate(['/admin-dashboard']);
-        break;
+        return 'user';
       case 'ROLE_TECHNICIEN':
-        this.router.navigate(['/technicien-dashboard']);
-        break;
+        return 'technicien';
+      case 'ROLE_ADMIN':
+        return 'admin';
       default:
-        alert('Role non reconnu');
-        break;
+        return '';
     }
   }
 }
