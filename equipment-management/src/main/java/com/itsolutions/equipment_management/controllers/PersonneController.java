@@ -1,6 +1,8 @@
 package com.itsolutions.equipment_management.controllers;
 
 import com.itsolutions.equipment_management.models.Personne;
+import com.itsolutions.equipment_management.models.Role;
+import com.itsolutions.equipment_management.models.Technicien;
 import com.itsolutions.equipment_management.security.JwtAuth;
 import com.itsolutions.equipment_management.services.PersonneService;
 import jakarta.persistence.EntityNotFoundException;
@@ -12,9 +14,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-
+@CrossOrigin(origins = "http://localhost:4200/")
 @RestController
 @RequestMapping("/api/users")
 public class PersonneController {
@@ -27,14 +30,14 @@ public class PersonneController {
     private PasswordEncoder passwordEncoder;
 
     @PostMapping("/register")
-    public ResponseEntity<?> registerUser(@RequestBody Personne userRequest) {
+    public void registerUser(@RequestBody Personne userRequest) {
         Optional<Personne> existingUser = personneService.findByEmail(userRequest.getEmail());
         if (existingUser.isPresent()) {
-            return ResponseEntity.status(400).body("Email already registered");
+            ResponseEntity.status(400).body("Email already registered");
         }
 
         Personne newUser = personneService.registerPersonne(userRequest);
-        return ResponseEntity.ok("User registered successfully");
+         ResponseEntity.ok("User registered successfully");
     }
 
     @PostMapping("/login")
@@ -45,13 +48,16 @@ public class PersonneController {
             String rawPassword = userRequest.getMotDePasse();
             String encodedPassword = foundUser.getMotDePasse();
 
+            System.out.println("Raw password: " + rawPassword);
+            System.out.println("Encoded password from database: " + encodedPassword);
+
             if (passwordEncoder.matches(rawPassword, encodedPassword)) {
-                String role = foundUser.getRole();
-                String token = jwtAuth.generateToken(foundUser.getEmail(), role);
+                Role role = foundUser.getRole();
+                String token = jwtAuth.generateToken(foundUser.getEmail(), String.valueOf(role));
 
                 Map<String, String> response = new HashMap<>();
                 response.put("token", token);
-                response.put("role", role);
+                response.put("role", String.valueOf(role));
 
                 return ResponseEntity.ok(response);
             } else {
@@ -60,7 +66,6 @@ public class PersonneController {
         }
         return ResponseEntity.status(401).body("Invalid email or password");
     }
-
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updatePersonne(@PathVariable Long id, @RequestBody Personne updatedPersonne) {
         try {
@@ -70,7 +75,6 @@ public class PersonneController {
             return ResponseEntity.status(404).body("User not found");
         }
     }
-
     @GetMapping("/profile")
     public ResponseEntity<?> getUserProfile() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -88,10 +92,30 @@ public class PersonneController {
             return ResponseEntity.status(404).body("User not found");
         }
     }
-
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable Long id) {
         personneService.deletePersonne(id);
         return ResponseEntity.ok("User deleted successfully");
     }
+    @GetMapping("/techniciens")
+    public ResponseEntity<List<Technicien>> getAllTechniciens() {
+        List<Technicien> techniciens = personneService.getAllTechniciens();
+        return ResponseEntity.ok(techniciens);
+    }
+    @GetMapping("/techniciens/{id}")
+    public ResponseEntity<?> getTechnicienById(@PathVariable Long id) {
+        try {
+            Technicien technicien = personneService.getTechnicienById(id);
+            return ResponseEntity.ok(technicien);
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.status(404).body("Technicien not found");
+        }
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<Personne>> getAllUsers() {
+        List<Personne> users = personneService.getAllUsers();
+        return ResponseEntity.ok(users);
+    }
+
 }
