@@ -281,6 +281,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>systeme-it</finalName>
 	</build>
 
 </project>

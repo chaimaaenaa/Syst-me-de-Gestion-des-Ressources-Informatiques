@@ -1,4 +1,4 @@
-FROM ubuntu:latest
-LABEL authors="user"
-
-ENTRYPOINT ["top", "-b"]
+FROM openjdk:17
+EXPOSE 8080
+ADD /target/systeme-it.jar app.jar
+ENTRYPOINT ["java", "-jar" , "/app.jar"]

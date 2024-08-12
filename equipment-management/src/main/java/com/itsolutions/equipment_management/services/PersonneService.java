@@ -71,31 +71,58 @@ public class PersonneService {
         return personneRepository.findById(id);
     }
 
-    public Personne updatePersonne(Long id, Personne updatedPersonne) {
-        Optional<Personne> optionalPersonne = findById(id);
-        if (optionalPersonne.isPresent()) {
-            Personne existingPersonne = optionalPersonne.get();
+//    public Personne updatePersonne(Long id, Personne updatedPersonne) {
+//        Optional<Personne> optionalPersonne = findById(id);
+//        if (optionalPersonne.isPresent()) {
+//            Personne existingPersonne = optionalPersonne.get();
+//
+//            // Update fields
+//            existingPersonne.setNom(updatedPersonne.getNom());
+//            existingPersonne.setPrenom(updatedPersonne.getPrenom());
+//            existingPersonne.setEmail(updatedPersonne.getEmail());
+//            if (updatedPersonne.getMotDePasse() != null) {
+//                existingPersonne.setMotDePasse(updatedPersonne.getMotDePasse()); // Encode password if necessary
+//            }
+//
+//            // Specific updates for subclasses (User, Technicien, Admin)
+//            if (existingPersonne instanceof User && updatedPersonne instanceof User) {
+//                ((User) existingPersonne).setFonction(((User) updatedPersonne).getFonction());
+//            } else if (existingPersonne instanceof Technicien && updatedPersonne instanceof Technicien) {
+//                ((Technicien) existingPersonne).setSpecialite(((Technicien) updatedPersonne).getSpecialite());
+//            } else if (existingPersonne instanceof Admin && updatedPersonne instanceof Admin) {
+//                ((Admin) existingPersonne).setDepartement(((Admin) updatedPersonne).getDepartement());
+//            }
+//
+//            return personneRepository.save(existingPersonne);
+//        }
+//        throw new EntityNotFoundException("Personne not found with id: " + id);
+//    }
+public Personne updatePersonne(Long id, Personne updatedPersonne) {
+    Optional<Personne> optionalPersonne = findById(id);
+    if (optionalPersonne.isPresent()) {
+        Personne existingPersonne = optionalPersonne.get();
 
-            // Update fields
-            existingPersonne.setNom(updatedPersonne.getNom());
-            existingPersonne.setPrenom(updatedPersonne.getPrenom());
-            existingPersonne.setEmail(updatedPersonne.getEmail());
-            if (updatedPersonne.getMotDePasse() != null) {
-                existingPersonne.setMotDePasse(updatedPersonne.getMotDePasse()); // Encode password if necessary
-            }
-
-            // Specific updates for subclasses (User, Technicien, Admin)
-            if (existingPersonne instanceof User && updatedPersonne instanceof User) {
-                ((User) existingPersonne).setFonction(((User) updatedPersonne).getFonction());
-            } else if (existingPersonne instanceof Technicien && updatedPersonne instanceof Technicien) {
-                ((Technicien) existingPersonne).setSpecialite(((Technicien) updatedPersonne).getSpecialite());
-            } else if (existingPersonne instanceof Admin && updatedPersonne instanceof Admin) {
-                ((Admin) existingPersonne).setDepartement(((Admin) updatedPersonne).getDepartement());
-            }
-
-            return personneRepository.save(existingPersonne);
+        // Update fields
+        existingPersonne.setNom(updatedPersonne.getNom());
+        existingPersonne.setPrenom(updatedPersonne.getPrenom());
+        existingPersonne.setEmail(updatedPersonne.getEmail());
+        if (updatedPersonne.getMotDePasse() != null && !updatedPersonne.getMotDePasse().isEmpty()) {
+            existingPersonne.setMotDePasse(passwordEncoder.encode(updatedPersonne.getMotDePasse()));
         }
-        throw new EntityNotFoundException("Personne not found with id: " + id);
+
+        // Specific updates for subclasses (User, Technicien, Admin)
+        if (existingPersonne instanceof User && updatedPersonne instanceof User) {
+            ((User) existingPersonne).setFonction(((User) updatedPersonne).getFonction());
+        } else if (existingPersonne instanceof Technicien && updatedPersonne instanceof Technicien) {
+            ((Technicien) existingPersonne).setSpecialite(((Technicien) updatedPersonne).getSpecialite());
+        } else if (existingPersonne instanceof Admin && updatedPersonne instanceof Admin) {
+            ((Admin) existingPersonne).setDepartement(((Admin) updatedPersonne).getDepartement());
+        }
+
+        return personneRepository.save(existingPersonne);
     }
+    throw new EntityNotFoundException("Personne not found with id: " + id);
+}
+
 
 }

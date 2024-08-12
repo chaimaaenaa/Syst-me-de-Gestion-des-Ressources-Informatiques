@@ -5,7 +5,6 @@ import com.itsolutions.equipment_management.services.PanneEquipmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -31,7 +30,6 @@ public class PanneEquipmentController {
         return ResponseEntity.ok(panneEquipments);
     }
 
-    // Get PanneEquipment history by Panne ID
     @GetMapping("/panne/{panneId}")
     public ResponseEntity<List<PanneEquipment>> getPanneHistory(@PathVariable Long panneId) {
         List<PanneEquipment> panneHistory = panneEquipmentService.getPanneHistory(panneId);
@@ -70,7 +68,7 @@ public class PanneEquipmentController {
     @GetMapping("/search/by-date")
     public ResponseEntity<List<PanneEquipment>> getPannesByDateRange(
             @RequestParam("startDate") LocalDateTime startDate,
-            @RequestParam("endDate") LocalDateTime endDate) {
+            @RequestParam("endDate") LocalDateTime endDate)  {
         List<PanneEquipment> pannes = panneEquipmentService.getPannesByDateRange(startDate, endDate);
         if (pannes.isEmpty()) {
             return ResponseEntity.noContent().build();
