@@ -3,6 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -31,6 +37,10 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faFacebook, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {EditUserComponent} from "./edit-user/edit-user.component";
+import {AdminUsersComponent} from "./admin-users/admin-users.component";
+import {AdminAccountsComponent} from "./admin-accounts/admin-accounts.component";
 
 library.add(faFacebook, faTwitter, faInstagram, faLinkedin);
 
@@ -58,7 +68,10 @@ library.add(faFacebook, faTwitter, faInstagram, faLinkedin);
     ServicesComponent,
     AboutUsComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    AdminAccountsComponent,
+    AdminUsersComponent,
+    EditUserComponent
   ],
   imports: [
     FontAwesomeModule,
@@ -66,7 +79,13 @@ library.add(faFacebook, faTwitter, faInstagram, faLinkedin);
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatInputModule,
+    MatSelectModule,
+    MatSnackBarModule,
+    MatDialogModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }

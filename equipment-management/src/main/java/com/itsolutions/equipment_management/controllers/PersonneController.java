@@ -3,6 +3,7 @@ package com.itsolutions.equipment_management.controllers;
 import com.itsolutions.equipment_management.models.Personne;
 import com.itsolutions.equipment_management.models.Role;
 import com.itsolutions.equipment_management.models.Technicien;
+import com.itsolutions.equipment_management.models.User;
 import com.itsolutions.equipment_management.security.JwtAuth;
 import com.itsolutions.equipment_management.services.PersonneService;
 import jakarta.persistence.EntityNotFoundException;
@@ -37,7 +38,7 @@ public class PersonneController {
         }
 
         Personne newUser = personneService.registerPersonne(userRequest);
-         ResponseEntity.ok("User registered successfully");
+        ResponseEntity.ok("User registered successfully");
     }
 
     @PostMapping("/login")

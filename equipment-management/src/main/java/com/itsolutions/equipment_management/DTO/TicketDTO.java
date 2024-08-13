@@ -1,5 +1,6 @@
 package com.itsolutions.equipment_management.DTO;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

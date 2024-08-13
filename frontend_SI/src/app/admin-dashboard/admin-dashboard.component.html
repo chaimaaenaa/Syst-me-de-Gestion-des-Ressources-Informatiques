@@ -1,86 +1,64 @@
-<div class="dashboard-container">
-  <aside class="sidebar">
-    <div class="sidebar-header">
-      <h2>Admin Dashboard</h2>
-    </div>
-    <ul class="sidebar-menu">
-      <li><a href="#" (click)="showSection('equipments')">Gestion Équipements</a></li>
-      <li><a href="#" (click)="showSection('failures')">Gestion Pannes</a></li>
-      <li><a href="#" (click)="showSection('tickets')">Gestion Tickets</a></li>
+<div class="admin-dashboard">
+  <div class="sidebar">
+    <h2>Admin Dashboard</h2>
+    <button (click)="logout()" class="logout-button">Log Out</button>
+    <button (click)="openAdminInfo()" class="info-button">
+      <i class="fa fa-user"></i> Voir Info Admin
+    </button>
+    <ul>
+      <li (click)="setActive('equipments')">
+        <a [routerLink]="['/admin/equipments']" routerLinkActive="active">Gestion des Équipements</a>
+      </li>
+      <li (click)="setActive('pannes')">
+        <a [routerLink]="['/admin/pannes']" routerLinkActive="active">Gestion des Pannes</a>
+      </li>
+      <li (click)="setActive('admin-tickets')">
+        <a [routerLink]="['/admin/admin-tickets']" routerLinkActive="active">Gestion des Tickets</a>
+      </li>
+      <li (click)="setActive('users')">
+        <a [routerLink]="['/admin/users']" routerLinkActive="active">Gestion des Comptes</a>
+      </li>
     </ul>
-  </aside>
-
-  <main class="main-content">
-    <div *ngIf="currentSection === 'equipments'" class="section">
-      <h2>Équipements</h2>
-      <button (click)="addItem('equipment')">Ajouter Équipement</button>
-      <table>
-        <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nom</th>
-          <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let equipment of equipments">
-          <td>{{ equipment.id }}</td>
-          <td>{{ equipment.name }}</td>
-          <td>
-            <button (click)="editItem('equipment', equipment.id)">Modifier</button>
-            <button (click)="deleteItem('equipment', equipment.id)">Supprimer</button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+    <div *ngIf="activeSection === 'equipments'" class="sub-menu">
+      <p>Équipements</p>
     </div>
-
-    <div *ngIf="currentSection === 'failures'" class="section">
-      <h2>Pannes</h2>
-      <button (click)="addItem('failure')">Ajouter Panne</button>
-      <table>
-        <thead>
-        <tr>
-          <th>ID</th>
-          <th>Description</th>
-          <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let failure of failures">
-          <td>{{ failure.id }}</td>
-          <td>{{ failure.description }}</td>
-          <td>
-            <button (click)="editItem('failure', failure.id)">Modifier</button>
-            <button (click)="deleteItem('failure', failure.id)">Supprimer</button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+    <div *ngIf="activeSection === 'pannes'" class="sub-menu">
+      <p>Pannes</p>
     </div>
-
-    <div *ngIf="currentSection === 'tickets'" class="section">
-      <h2>Tickets</h2>
-      <button (click)="addItem('ticket')">Ajouter Ticket</button>
-      <table>
-        <thead>
-        <tr>
-          <th>ID</th>
-          <th>Sujet</th>
-          <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let ticket of tickets">
-          <td>{{ ticket.id }}</td>
-          <td>{{ ticket.subject }}</td>
-          <td>
-            <button (click)="editItem('ticket', ticket.id)">Modifier</button>
-            <button (click)="deleteItem('ticket', ticket.id)">Supprimer</button>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+    <div *ngIf="activeSection === 'admin-tickets'" class="sub-menu">
+      <p>Tickets</p>
     </div>
-  </main>
+    <div *ngIf="activeSection === 'users'" class="sub-menu">
+      <p>Comptes</p>
+    </div>
+  </div>
+  <div class="content">
+    <div class="welcome-section">
+      <h1>Welcome to Admin Dashboard</h1>
+      <div class="stats-container">
+        <div class="stat-card">
+          <h3>Total Équipements</h3>
+          <p>{{ totalEquipments }}</p>
+        </div>
+        <div class="stat-card">
+          <h3>Total Pannes</h3>
+          <p>{{ totalPannes }}</p>
+        </div>
+        <div class="stat-card">
+          <h3>Total Tickets</h3>
+          <p>{{ totalTickets }}</p>
+        </div>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+
+  <div *ngIf="showAdminInfo" class="modal-overlay">
+    <div class="modal">
+      <h3>Admin Information</h3>
+      <p><strong>Nom:</strong> {{ adminProfile?.nom }}</p>
+      <p><strong>Email:</strong> {{ adminProfile?.email }}</p>
+      <button (click)="closeAdminInfo()" class="close-button">Close</button>
+    </div>
+  </div>
 </div>

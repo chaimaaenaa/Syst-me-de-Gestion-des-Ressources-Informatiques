@@ -1,57 +1,112 @@
-/* Styling for the Home component */
-.container {
-  background-color: #f8f9fa;
+.home-container {
+  text-align: center;
+  color: #fff;
+  background-color: #1e3a8a;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
   padding: 20px;
-  border-radius: 10px;
+  background-color: #fbbf24;
 }
 
-/* Animation for cards */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.logo h1 {
+  font-size: 2.5rem;
+  color: #1e3a8a;
 }
 
-.animate-card {
-  animation: fadeInUp 1s ease-in-out;
+.nav-links a {
+  margin: 0 15px;
+  font-size: 1.2rem;
+  color: #fff;
+  text-decoration: none;
 }
 
-/* Card customization */
-.card {
-  border: none;
-  border-radius: 10px;
+.nav-links .login-btn {
+  background-color: #3b82f6;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.nav-links .login-btn:hover {
+  background-color: #2563eb;
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.hero-text h2 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 1.5rem;
+}
+
+.hero-animation {
+  position: relative;
+  width: 50%;
+  max-width: 1200px;
+  height: 400px;
   overflow: hidden;
+  border-radius: 15px;
 }
 
-.card-img-top {
-  border-bottom: 3px solid #007bff;
+.hero-animation img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: fadeInOut 12s infinite;
+  object-fit: cover;
 }
 
-.card-title {
-  font-weight: bold;
+.hero-animation img:nth-child(1) {
+  animation-delay: 0s;
 }
 
-.text-primary {
-  color: #007bff;
+.hero-animation img:nth-child(2) {
+  animation-delay: 4s;
 }
 
-.text-success {
-  color: #435946;
+.hero-animation img:nth-child(3) {
+  animation-delay: 8s;
 }
 
-.mt-5 {
-  margin-top: 3rem !important;
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  25%, 75% { opacity: 1; }
 }
 
-.mb-4 {
-  margin-bottom: 1.5rem !important;
+.nav-links a {
+  cursor: pointer;
+}
+.logo {
+  display: flex;
+  align-items: center;
 }
 
-.shadow-lg {
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+.logo img {
+  height: 50px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.logo h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #fff;
 }

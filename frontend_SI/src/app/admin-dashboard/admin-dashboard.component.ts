@@ -1,44 +1,60 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PersonneService } from "../Service/PersonneService";
+import { Observable } from 'rxjs';
+import { Personne } from '../models/personne.model';
+import {EquipmentService} from "../Service/equipment.service";
+import {PanneService} from "../Service/Panne.Service";
+import {TicketService} from "../Service/ticket.service"; // Adjust the import based on your model's location
 
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.css']
 })
-export class AdminDashboardComponent {
-  currentSection: string = 'equipments';
+export class AdminDashboardComponent implements OnInit {
+  activeSection: string = 'equipments';
+  showAdminInfo: boolean = false;
+  adminProfile?: Personne;
+  totalEquipments: number = 0;
+  totalPannes: number = 0;
+  totalTickets: number = 0;
 
-  equipments = [
-    { id: 1, name: 'Équipement A' },
-    { id: 2, name: 'Équipement B' }
-  ];
+  constructor(
+    private authService: PersonneService,
+    private router: Router,
+    private equipmentService: EquipmentService,
+    private panneService: PanneService,
+    private ticketService: TicketService
+  ) {}
 
-  failures = [
-    { id: 1, description: 'Panne A' },
-    { id: 2, description: 'Panne B' }
-  ];
-
-  tickets = [
-    { id: 1, subject: 'Ticket A' },
-    { id: 2, subject: 'Ticket B' }
-  ];
-
-  showSection(section: string): void {
-    this.currentSection = section;
+  ngOnInit() {
+    this.loadCounts();
   }
 
-  addItem(type: string): void {
-    // Logic to add item
-    console.log(`Add ${type}`);
+  setActive(section: string) {
+    this.activeSection = section;
   }
 
-  editItem(type: string, id: number): void {
-    // Logic to edit item
-    console.log(`Edit ${type} with ID ${id}`);
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
-  deleteItem(type: string, id: number): void {
-    // Logic to delete item
-    console.log(`Delete ${type} with ID ${id}`);
+  openAdminInfo() {
+    this.authService.getUserProfile().subscribe(profile => {
+      this.adminProfile = profile;
+      this.showAdminInfo = true;
+    });
+  }
+
+  closeAdminInfo() {
+    this.showAdminInfo = false;
+  }
+
+  private loadCounts() {
+    this.equipmentService.getTotalEquipments().subscribe(count => this.totalEquipments = count);
+    this.panneService.getTotalPannes().subscribe(count => this.totalPannes = count);
+    this.ticketService.getTotalTickets().subscribe(count => this.totalTickets = count);
   }
 }

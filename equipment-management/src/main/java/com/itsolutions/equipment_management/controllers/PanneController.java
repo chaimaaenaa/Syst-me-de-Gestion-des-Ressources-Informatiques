@@ -91,7 +91,7 @@ public class PanneController {
         }
         return ResponseEntity.ok(pannes);
     }
-//    @GetMapping("/with-equipments")
+    //    @GetMapping("/with-equipments")
 //    public List<PanneWithEquipmentDTO> getAllPannesWithEquipments() {
 //        return panneService.findAllPannesWithEquipments();
 //    }
@@ -103,5 +103,8 @@ public class PanneController {
         }
         return ResponseEntity.ok(dto);
     }
-
+    @GetMapping("/total")
+    public ResponseEntity<Long> getTotalPannes() {
+        return ResponseEntity.ok(panneService.getTotalPannes());
+    }
 }

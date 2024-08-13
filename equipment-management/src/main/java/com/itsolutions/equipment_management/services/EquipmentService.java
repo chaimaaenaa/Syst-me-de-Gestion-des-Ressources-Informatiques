@@ -39,4 +39,8 @@ public class EquipmentService {
         return equipmentRepository.findById(id).orElseThrow(() -> new RuntimeException("Equipment not found"));
     }
 
+
+        public long getTotalEquipments() {
+            return equipmentRepository.count();
+        }
 }

@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 //terminer test gestion equipment
 @CrossOrigin(origins = "http://localhost:4200/")
@@ -45,5 +46,9 @@ public class EquipmentController {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(equipmentList);
+    }
+    @GetMapping("/total")
+    public ResponseEntity<Long> getTotalEquipments() {
+        return ResponseEntity.ok(equipmentService.getTotalEquipments());
     }
 }
