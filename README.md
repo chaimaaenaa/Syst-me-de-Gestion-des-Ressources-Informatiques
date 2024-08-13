@@ -1,4 +1,4 @@
-Système de Gestion des Ressources Informatiques
+<h1>Système de Gestion des Ressources Informatiques</h1>
 Description
 Le Système de Gestion des Ressources Informatiques (SGRI) est une application développée pour faciliter la gestion des équipements informatiques au sein d'une organisation. Le système permet de suivre l'état des équipements, de gérer les pannes, et de traiter les tickets de support technique. Il fournit également des outils pour la génération de rapports et de statistiques afin d'évaluer les performances et l'état des équipements.
 
