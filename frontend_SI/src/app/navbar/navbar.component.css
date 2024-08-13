@@ -1,0 +1,49 @@
+/* Navbar Customization */
+.navbar {
+  background-color: #2C607591; /* Primary Blue Background */
+  padding: 1rem;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+.navbar-nav .nav-link {
+  color: #fff !important;
+  font-weight: 500;
+  margin-right: 1rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #6c24fb !important; /* Hover Color: Yellow */
+}
+
+.btn-outline-light {
+  border-color: #fff;
+  color: #fff;
+}
+
+.btn-outline-light:hover {
+  background-color: #fff;
+  color: #007bff;
+}
+
+/* Icons Styling */
+.nav-link i {
+  margin-right: 5px;
+}
+
+/* Logo Styling */
+.navbar-brand img {
+  margin-right: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .navbar-nav {
+    margin-top: 1rem;
+  }
+}

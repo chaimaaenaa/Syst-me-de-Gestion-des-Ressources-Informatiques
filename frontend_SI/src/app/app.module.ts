@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { TechnicianDashboardComponent } from './technician-dashboard/technician-dashboard.component';
-import {AuthInterceptor} from "./interceptors/auth.interceptor";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './register/registration.component';
-import {AppRoutingModule} from "./app-routing.module";
-import { EquipmentListComponent } from './EquipmentC/equipment-list/equipment-list.component';
-import { EquipmentFormComponent } from './EquipmentC/equipment-form/equipment-form.component';
 import { PanneListComponent } from './PanneC/panne-list/panne-list.component';
 import { PanneFormComponent } from './PanneC/panne-form/panne-form.component';
 import { PanneSearchComponent } from './PanneC/panne-search/panne-search.component';
@@ -26,10 +25,19 @@ import { ServicesComponent } from './services/services.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from './footer/footer.component';
+import { EquipmentFormComponent } from './EquipmentC/equipment-form/equipment-form.component';
+import { EquipmentListComponent } from './EquipmentC/equipment-list/equipment-list.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faFacebook, faTwitter, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+
+library.add(faFacebook, faTwitter, faInstagram, faLinkedin);
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
     UserDashboardComponent,
     AdminDashboardComponent,
     TechnicianDashboardComponent,
@@ -53,11 +61,12 @@ import { FooterComponent } from './footer/footer.component';
     FooterComponent
   ],
   imports: [
+    FontAwesomeModule,
     BrowserModule,
     FormsModule,
-    HttpClientModule,
-    AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }

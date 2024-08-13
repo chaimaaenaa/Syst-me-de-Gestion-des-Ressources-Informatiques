@@ -1,1 +1,22 @@
-<p>about-us works!</p>
+<div class="about-us-container">
+  <h2>À Propos de Nous</h2>
+  <p>Découvrez notre équipe dévouée qui travaille sans relâche pour vous offrir le meilleur service.</p>
+
+  <div class="team">
+    <div class="card" *ngFor="let member of teamMembers">
+      <div class="card-image">
+        <img [src]="member.photo" [alt]="member.name">
+      </div>
+      <div class="card-content">
+        <h3>{{ member.name }}</h3>
+        <p>{{ member.position }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="image-slider">
+    <div class="slide" *ngFor="let member of teamMembers">
+      <img [src]="member.photo" [alt]="member.name">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="dashboard">
+  <nav>
+    <button (click)="showSection('tickets')">Tickets</button>
+    <button (click)="showSection('reports')">Reports</button>
+    <!-- Add more sections as needed -->
+  </nav>
+
+  <div *ngIf="currentSection === 'tickets'">
+    <h2>Tickets</h2>
+    <ul>
+      <li *ngFor="let ticket of tickets">
+        <div>
+          <strong>{{ ticket.subject }}</strong> - Status: {{ ticket.status }}
+          <button (click)="viewDetails(ticket.id)">View Details</button>
+          <select (change)="updateStatus(ticket.id, $event)">
+            <option value="En attente" [selected]="ticket.status === 'En attente'">En attente</option>
+            <option value="En cours" [selected]="ticket.status === 'En cours'">En cours</option>
+            <option value="Résolu" [selected]="ticket.status === 'Résolu'">Résolu</option>
+          </select>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="currentSection === 'reports'">
+    <!-- Placeholder for reports section -->
+    <h2>Reports</h2>
+    <p>Reports content goes here.</p>
+  </div>
+</div>

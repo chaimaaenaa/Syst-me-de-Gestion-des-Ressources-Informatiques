@@ -5,21 +5,21 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { TechnicianDashboardComponent } from './technician-dashboard/technician-dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './register/registration.component';
-import { EquipmentListComponent } from "./EquipmentC/equipment-list/equipment-list.component";
-import { EquipmentFormComponent } from "./EquipmentC/equipment-form/equipment-form.component";
-import { PanneFormComponent } from "./PanneC/panne-form/panne-form.component";
-import { PanneListComponent } from "./PanneC/panne-list/panne-list.component";
-import { PanneDetailComponent } from "./PanneC/panne-detail/panne-detail.component";
-import { PanneSearchComponent } from "./PanneC/panne-search/panne-search.component";
-import { PanneEquipmentListComponent } from "./PanneC/panne-equipment/panne-equipment-list.component";
-import { CreateTicketComponent } from "./TicketC/create-ticket/create-ticket.component";
-import { AdminTicketsComponent } from "./TicketC/admin-tickets/admin-tickets.component";
-import { TechnicienTicketsComponent } from "./TicketC/technicien-tickets/technicien-tickets.component";
-import { TicketListComponent } from "./TicketC/ticket-list/ticket-list.component";
-import {HomeComponent} from "./home/home.component";
-import {ContactComponent} from "./contact/contact.component";
-import {AboutUsComponent} from "./about-us/about-us.component";
-import {ServicesComponent} from "./services/services.component";
+import { PanneFormComponent } from './PanneC/panne-form/panne-form.component';
+import { PanneListComponent } from './PanneC/panne-list/panne-list.component';
+import { PanneDetailComponent } from './PanneC/panne-detail/panne-detail.component';
+import { PanneSearchComponent } from './PanneC/panne-search/panne-search.component';
+import { PanneEquipmentListComponent } from './PanneC/panne-equipment/panne-equipment-list.component';
+import { CreateTicketComponent } from './TicketC/create-ticket/create-ticket.component';
+import { AdminTicketsComponent } from './TicketC/admin-tickets/admin-tickets.component';
+import { TechnicienTicketsComponent } from './TicketC/technicien-tickets/technicien-tickets.component';
+import { TicketListComponent } from './TicketC/ticket-list/ticket-list.component';
+import { HomeComponent } from './home/home.component';
+import { ContactComponent } from './contact/contact.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ServicesComponent } from './services/services.component';
+import {EquipmentListComponent} from "./EquipmentC/equipment-list/equipment-list.component";
+import {EquipmentFormComponent} from "./EquipmentC/equipment-form/equipment-form.component";
 
 const routes: Routes = [
   { path: 'user-dashboard', component: UserDashboardComponent },
@@ -34,7 +34,6 @@ const routes: Routes = [
   { path: 'pannes/new', component: PanneFormComponent },
   { path: 'pannes/edit/:id', component: PanneFormComponent },
   { path: 'pannes/detail/:id', component: PanneDetailComponent },
-
   { path: 'pannes/search', component: PanneSearchComponent },
   { path: 'panne-equipment', component: PanneEquipmentListComponent },
   { path: 'create-ticket', component: CreateTicketComponent },

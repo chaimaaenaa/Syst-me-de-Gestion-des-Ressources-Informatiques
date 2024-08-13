@@ -1,0 +1,36 @@
+<div class="panne-list-container">
+  <h2>Pannes List</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Description</th>
+      <th>État Panne</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let panne of pannes">
+      <td>{{ panne.description }}</td>
+   <!--   <td>{{ panne.datePanne| date:'short' }}</td>-->
+      <td>{{ panne.etatPanne }}</td>
+      <td>
+        <button
+          class="btn btn-info"
+          [routerLink]="['/pannes/edit', panne.id]"
+        >
+          Edit
+        </button>
+        <button
+          class="btn btn-danger"
+          (click)="deletePanne(panne.id)"
+        >
+          Delete
+        </button>
+        <button>
+        <a [routerLink]="['/pannes/detail', panne.id]">Voir détails</a>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

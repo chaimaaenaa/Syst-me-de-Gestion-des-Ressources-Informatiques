@@ -1,0 +1,57 @@
+/* Styling for the Home component */
+.container {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Animation for cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-card {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* Card customization */
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-img-top {
+  border-bottom: 3px solid #007bff;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.text-primary {
+  color: #007bff;
+}
+
+.text-success {
+  color: #435946;
+}
+
+.mt-5 {
+  margin-top: 3rem !important;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem !important;
+}
+
+.shadow-lg {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
