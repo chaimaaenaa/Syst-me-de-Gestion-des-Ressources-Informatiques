@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Personne } from '../models/personne.model';
 import {EquipmentService} from "../Service/equipment.service";
 import {PanneService} from "../Service/Panne.Service";
-import {TicketService} from "../Service/ticket.service"; // Adjust the import based on your model's location
+import {TicketService} from "../Service/ticket.service";
 
 @Component({
   selector: 'app-admin-dashboard',

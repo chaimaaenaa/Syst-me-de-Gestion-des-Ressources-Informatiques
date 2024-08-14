@@ -41,6 +41,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {EditUserComponent} from "./edit-user/edit-user.component";
 import {AdminUsersComponent} from "./admin-users/admin-users.component";
 import {AdminAccountsComponent} from "./admin-accounts/admin-accounts.component";
+import {MatIconModule} from "@angular/material/icon";
 
 library.add(faFacebook, faTwitter, faInstagram, faLinkedin);
 
@@ -74,6 +75,7 @@ library.add(faFacebook, faTwitter, faInstagram, faLinkedin);
     EditUserComponent
   ],
   imports: [
+    MatIconModule,
     FontAwesomeModule,
     BrowserModule,
     FormsModule,

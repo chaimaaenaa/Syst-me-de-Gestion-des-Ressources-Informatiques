@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TicketService } from '../../Service/ticket.service';
 import { TicketDTO } from "../../DTO/TicketDTO";
 import {error} from "@angular/compiler-cli/src/transformers/util";
+import { MatIconModule } from '@angular/material/icon';
+
 
 @Component({
   selector: 'app-admin-tickets',
