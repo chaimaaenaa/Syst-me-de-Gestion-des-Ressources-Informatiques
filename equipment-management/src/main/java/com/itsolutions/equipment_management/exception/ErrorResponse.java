@@ -1,4 +1,4 @@
-package com.itsolutions.equipment_management.exception;//package com.itsolutions.equipment_management.exception;
+//package com.itsolutions.equipment_management.exception;
 //
 //public class ErrorResponse {
 //    private String message;

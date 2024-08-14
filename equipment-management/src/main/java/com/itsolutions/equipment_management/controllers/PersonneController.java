@@ -38,7 +38,7 @@ public class PersonneController {
         }
 
         Personne newUser = personneService.registerPersonne(userRequest);
-        ResponseEntity.ok("User registered successfully");
+         ResponseEntity.ok("User registered successfully");
     }
 
     @PostMapping("/login")

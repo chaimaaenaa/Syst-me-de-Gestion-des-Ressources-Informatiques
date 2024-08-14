@@ -91,7 +91,7 @@ public class PanneController {
         }
         return ResponseEntity.ok(pannes);
     }
-    //    @GetMapping("/with-equipments")
+//    @GetMapping("/with-equipments")
 //    public List<PanneWithEquipmentDTO> getAllPannesWithEquipments() {
 //        return panneService.findAllPannesWithEquipments();
 //    }

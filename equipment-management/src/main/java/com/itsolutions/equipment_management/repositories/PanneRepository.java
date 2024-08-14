@@ -1,5 +1,6 @@
 package com.itsolutions.equipment_management.repositories;
 
+import com.itsolutions.equipment_management.DTO.PanneWithEquipmentDTO;
 import com.itsolutions.equipment_management.models.EtatPanne;
 import com.itsolutions.equipment_management.models.Panne;
 import org.springframework.data.jpa.repository.JpaRepository;

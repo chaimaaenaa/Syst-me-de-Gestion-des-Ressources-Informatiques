@@ -1,4 +1,4 @@
-package com.itsolutions.equipment_management.services;//package com.itsolutions.equipment_management.services;
+//package com.itsolutions.equipment_management.services;
 //
 //import com.itsolutions.equipment_management.models.Technicien;
 //import com.itsolutions.equipment_management.repositories.TechnicienRepository;

@@ -1,4 +1,4 @@
-package com.itsolutions.equipment_management.DTO;//package com.itsolutions.equipment_management.DTO;
+//package com.itsolutions.equipment_management.DTO;
 //
 //
 //import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package com.itsolutions.equipment_management.controllers;//package com.itsolutions.equipment_management.controllers;
+//package com.itsolutions.equipment_management.controllers;
 //
 //import com.itsolutions.equipment_management.models.Technicien;
 //import com.itsolutions.equipment_management.services.TechnicienService;
