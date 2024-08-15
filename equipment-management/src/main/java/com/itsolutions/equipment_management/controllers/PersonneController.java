@@ -42,20 +42,34 @@ public class PersonneController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> loginUser(@RequestBody Personne userRequest) {
-        Optional<Personne> optionalUser = personneService.findByEmail(userRequest.getEmail());
+    // Déclaration de la méthode loginUser
+// Cette méthode est accessible publiquement et renvoie un objet ResponseEntity qui peut contenir tout type d'objet (indiqué par le générique <?>).
+// Elle accepte un corps de requête HTTP de type Map<String, String> qui contient les données de connexion (email et mot de passe).
+// L'annotation @RequestBody indique que le corps de la requête sera automatiquement converti en un objet Map en Java.
+// map est un utilisée pour capturer les paires clé-valeur provenant du JSON de la requête
+    public ResponseEntity<?> loginUser(@RequestBody Map<String, String> userRequest) {
+
+        // Récupère les informations d'identification depuis la requête
+        String email = userRequest.get("email");
+        String rawPassword = userRequest.get("motDePasse");
+
+        if (email == null || rawPassword == null) {
+            return ResponseEntity.badRequest().body("Email and password are required");
+        }
+
+        // Vérifie si l'utilisateur existe
+        Optional<Personne> optionalUser = personneService.findByEmail(email);
         if (optionalUser.isPresent()) {
             Personne foundUser = optionalUser.get();
-            String rawPassword = userRequest.getMotDePasse();
             String encodedPassword = foundUser.getMotDePasse();
 
-            System.out.println("Raw password: " + rawPassword);
-            System.out.println("Encoded password from database: " + encodedPassword);
-
+            // Vérifie si le mot de passe correspond
             if (passwordEncoder.matches(rawPassword, encodedPassword)) {
                 Role role = foundUser.getRole();
+                // Génère un token JWT pour l'utilisateur
                 String token = jwtAuth.generateToken(foundUser.getEmail(), String.valueOf(role));
 
+                // Prépare la réponse contenant le token et le rôle
                 Map<String, String> response = new HashMap<>();
                 response.put("token", token);
                 response.put("role", String.valueOf(role));
@@ -67,6 +81,7 @@ public class PersonneController {
         }
         return ResponseEntity.status(401).body("Invalid email or password");
     }
+
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updatePersonne(@PathVariable Long id, @RequestBody Personne updatedPersonne) {
         try {

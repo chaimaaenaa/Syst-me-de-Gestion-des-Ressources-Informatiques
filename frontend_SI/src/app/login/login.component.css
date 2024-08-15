@@ -7,8 +7,8 @@
 
 .login-image-container,
 .login-form-container {
-  width: 50%;
-  display: flex;
+  width: 40%;
+  margin-left: 10%;  display: flex;
   justify-content: center;
   align-items: center;
   transition: transform 0.5s ease, opacity 0.5s ease;
@@ -17,6 +17,8 @@
 .login-image-container {
   background-color: rgba(44, 96, 117, 0.16);
   color: white;
+  width: 40%;
+  margin-left: 10%;
   flex-direction: column;
   text-align: center;
   position: relative;
@@ -181,5 +183,5 @@ select:focus {
   left: 15px;
   top: 50%;
   transform: translateY(-50%);
-  color: #1e3a8a;
+  color: rgba(44, 96, 117, 0.57);
 }

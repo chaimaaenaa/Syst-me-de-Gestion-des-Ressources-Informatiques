@@ -1,10 +1,9 @@
-
 export interface Personne {
   id?: number;
   email: string;
   motDePasse: string;
   role?: Role;
-  type: string;
+  type ?: string;
   prenom?: string;
   nom?: string;
 
@@ -14,4 +13,3 @@ export enum Role {
   USER = 'ROLE_USER',
   ADMIN = 'ROLE_ADMIN'
 }
-
