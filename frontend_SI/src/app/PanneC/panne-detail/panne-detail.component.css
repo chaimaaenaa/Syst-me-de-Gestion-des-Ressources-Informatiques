@@ -1,7 +1,7 @@
 /* Container Styling */
 div {
   padding: 20px;
-  background-color: #FF5722CB; /* Background color */
+  background-color: rgba(44, 96, 117, 0.57); /* Background color */
   border-radius: 8px;
   border: 1px solid #2C607591; /* Border color */
   margin-bottom: 20px;

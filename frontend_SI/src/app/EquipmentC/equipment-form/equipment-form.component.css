@@ -1,67 +1,44 @@
 .equipment-form {
-  max-width: 400px;
-  width: 100%;
+  max-width: 600px;
   margin: 0 auto;
-  padding: 20px;
-  background-color: #f0f4f8;
+  background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease-out;
 }
 
 .title {
-  color: #2C607591;
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 1.5rem;
+  color: #007bff; /* Updated color */
+  font-size: 1.75rem; /* Slightly larger font size */
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  color: #2C607591;
-  font-weight: bold;
+.form-group label {
+  color: #495057; /* Updated color */
+  font-weight: 600;
 }
 
 input, select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #2C607591;
-  border-radius: 4px;
+  border-color: #ced4da;
   transition: border-color 0.3s ease;
 }
 
 input:focus, select:focus {
-  outline: none;
-  border-color: rgba(110, 197, 110, 0.64);
-  box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2);
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
 }
 
-.submit-btn {
-  background-color: rgba(110, 197, 110, 0.64);
-  color: #2C607591;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.1s ease;
+.btn-primary {
+  background-color: #007bff; /* Updated color */
+  border-color: #007bff;
 }
 
-.submit-btn:hover {
-  background-color: rgba(110, 197, 110, 0.64);
+.btn-primary:hover {
+  background-color: #0056b3; /* Darker color on hover */
+  border-color: #004085;
 }
 
-.submit-btn:active {
-  transform: scale(0.98);
+.btn-primary:focus, .btn-primary.focus {
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
 }
 
 @keyframes fadeIn {
@@ -69,34 +46,9 @@ input:focus, select:focus {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.equipment-form {
-  animation: fadeIn 0.5s ease-out;
-}
-
 /* Responsive styles */
-@media (max-width: 480px) {
-  .equipment-form {
-    padding: 15px;
-  }
-
+@media (max-width: 576px) {
   .title {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
-
-  input, select, .submit-btn {
-    font-size: 16px; /* Prevents zoom on mobile devices */
-  }
-}
-
-/* Icon styles */
-.fas {
-  margin-right: 5px;
-}
-
-.title .fas {
-  font-size: 1.2em;
-}
-
-.submit-btn .fas {
-  margin-right: 8px;
 }

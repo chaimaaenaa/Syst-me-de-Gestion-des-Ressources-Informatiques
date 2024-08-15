@@ -1,22 +1,32 @@
 <div class="admin-dashboard">
   <div class="sidebar">
     <h2>Admin Dashboard</h2>
-    <button (click)="logout()" class="logout-button">Log Out</button>
+    <button (click)="logout()" class="logout-button">
+      <i class="fas fa-sign-out-alt"></i> Log Out
+    </button>
     <button (click)="openAdminInfo()" class="info-button">
-      <i class="fa fa-user"></i> Voir Info Admin
+      <i class="fas fa-user"></i> Voir Info Admin
     </button>
     <ul>
       <li (click)="setActive('equipments')">
-        <a [routerLink]="['/admin/equipments']" routerLinkActive="active">Gestion des Équipements</a>
+        <a [routerLink]="['/admin/equipments']" routerLinkActive="active">
+          <i class="fas fa-cogs"></i> Gestion des Équipements
+        </a>
       </li>
       <li (click)="setActive('pannes')">
-        <a [routerLink]="['/admin/pannes']" routerLinkActive="active">Gestion des Pannes</a>
+        <a [routerLink]="['/admin/pannes']" routerLinkActive="active">
+          <i class="fas fa-tools"></i> Gestion des Pannes
+        </a>
       </li>
       <li (click)="setActive('admin-tickets')">
-        <a [routerLink]="['/admin/admin-tickets']" routerLinkActive="active">Gestion des Tickets</a>
+        <a [routerLink]="['/admin/admin-tickets']" routerLinkActive="active">
+          <i class="fas fa-ticket-alt"></i> Gestion des Tickets
+        </a>
       </li>
       <li (click)="setActive('users')">
-        <a [routerLink]="['/admin/users']" routerLinkActive="active">Gestion des Comptes</a>
+        <a [routerLink]="['/admin/users']" routerLinkActive="active">
+          <i class="fas fa-users"></i> Gestion des Comptes
+        </a>
       </li>
     </ul>
     <div *ngIf="activeSection === 'equipments'" class="sub-menu">
@@ -32,19 +42,29 @@
       <p>Comptes</p>
     </div>
   </div>
+
   <div class="content">
     <div class="welcome-section">
       <h1>Welcome to Admin Dashboard</h1>
       <div class="stats-container">
         <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
           <h3>Total Équipements</h3>
           <p>{{ totalEquipments }}</p>
         </div>
         <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-tools"></i>
+          </div>
           <h3>Total Pannes</h3>
           <p>{{ totalPannes }}</p>
         </div>
         <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-ticket-alt"></i>
+          </div>
           <h3>Total Tickets</h3>
           <p>{{ totalTickets }}</p>
         </div>
@@ -52,6 +72,7 @@
     </div>
     <router-outlet></router-outlet>
   </div>
+
 
   <div *ngIf="showAdminInfo" class="modal-overlay">
     <div class="modal">

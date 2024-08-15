@@ -1,71 +1,71 @@
+/* Container Styling */
 .contact-container {
   max-width: 600px;
-  margin: 50px auto;
+  margin: 0 auto;
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-  }
+/* Heading Styling */
+.contact-container h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 20px;
+}
 
-  p {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 16px;
-    color: #666;
-  }
+/* Paragraph Styling */
+.contact-container p {
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
 
-  .form-group {
-    margin-bottom: 20px;
+/* Form Group Styling */
+.contact-container .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
 
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-      color: #555;
-    }
+/* Input and Textarea Styling */
+.contact-container .form-control {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
 
-    input,
-    textarea {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-      background-color: #fff;
-      transition: border-color 0.3s ease;
+.contact-container .form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+}
 
-      &:focus {
-        border-color: #007bff;
-        outline: none;
-      }
-    }
-  }
+/* Button Styling */
+.contact-container .btn-primary {
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  padding: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
-  button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.contact-container .btn-primary:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
 
-    &:hover {
-      background-color: #0056b3;
-    }
+.contact-container .btn-primary:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
 
-    &:disabled {
-      background-color: #ccc;
-      cursor: not-allowed;
-    }
-  }
+.contact-container .btn-primary i {
+  margin-right: 5px;
 }

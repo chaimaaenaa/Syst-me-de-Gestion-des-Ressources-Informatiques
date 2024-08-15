@@ -1,7 +1,7 @@
 /* Container Styling */
 .panne-container {
   padding: 20px;
-  background-color: #FF5722CB; /* Background color */
+  background-color: #A3EBFA84; /* Background color */
   border-radius: 8px;
 }
 
@@ -39,7 +39,7 @@ h2 {
 }
 
 .search-button:hover {
-  background-color: #FF5722CB; /* Button hover color */
+  background-color: #A3EBFA84; /* Button hover color */
   color: #2C607591; /* Button hover text color */
 }
 
@@ -89,7 +89,7 @@ h2 {
 }
 
 .search-button:hover {
-  background-color: #FF5722CB; /* Button hover color */
+  background-color: #A3EBFA84; /* Button hover color */
   color: #2C607591; /* Button hover text color */
 }
 
@@ -199,6 +199,6 @@ h2 {
 }
 
 .add-button:hover {
-  background-color: #FF5722CB; /* Button hover color */
+  background-color: rgba(163, 235, 250, 0.52); /* Button hover color */
   color: #2C607591; /* Button hover text color */
 }
