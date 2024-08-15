@@ -10,8 +10,8 @@ import { PersonneService } from '../Service/PersonneService';
 export class LoginComponent {
   loginForm: FormGroup;
   errorMessage: string = '';
-  showLoginForm = false; // Contrôle l'affichage du formulaire de connexion
-  showHeart = false; // Contrôle l'affichage de l'icône cœur
+  showLoginForm = false;
+  showHeart = false;
 
   constructor(private fb: FormBuilder, private personneService: PersonneService) {
     this.loginForm = this.fb.group({
