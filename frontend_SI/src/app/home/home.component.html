@@ -1,41 +1,152 @@
 <div class="home-container">
-  <header class="header">
-    <div class="logo">
-      <img src="assets/IT%20SUPPO.png" alt="IT Solutions Logo">
-      <h1>IT SolutionH</h1>
-    </div>
-    <nav class="nav-links">
-      <a (click)="scrollToSection('services')">Services</a>
-      <a (click)="scrollToSection('about-us')">About Us</a>
-      <a (click)="scrollToSection('contact')">Contact</a>
-      <a routerLink="/login" class="login-btn">Login</a>
-    </nav>
-  </header>
 
+  <!-- Hero Section -->
   <section class="hero-section">
-    <div class="hero-text">
-      <h2>Welcome to IT Solutions</h2>
-      <p>Your trusted partner in IT equipment management.</p>
+    <div class="hero-content">
+      <h2 class="hero-title">Optimize Your IT Management</h2>
+      <p class="hero-paragraph">Efficient solutions for managing IT equipment, tracking issues, and improving support performance.</p>
     </div>
-    <div class="hero-animation">
-      <img src="https://www.callcentersforhire.com/wp-content/uploads/2018/09/service-callcenters.jpg" alt="Equipment Image 1">
-      <img src="https://www.shutterstock.com/shutterstock/photos/1181227630/display_1500/stock-photo-technical-support-customer-service-business-technology-internet-concept-1181227630.jpg" alt="Equipment Image 2">
-      <img src="https://www.pxl-vision.com/hubfs/ISO%2027001.jpg" alt="Equipment Image 3">
-      <img src="https://avatars.mds.yandex.net/i?id=a0c08edfd562947ab2bd022b92ae9b38c5e84755-5870018-images-thumbs&n=13" alt="Equipment Image 4">
+    <div class="hero-background">
+      <img src="assets/IMG/homee.jpg" alt="IT Background">
+      <div class="hero-overlay">
+        <h1>Welcome to IT Solutions</h1>
+        <p>Your trusted partner in IT equipment management.</p>
+        <button id="start">start </button>
+      </div>
     </div>
   </section>
 
+
+  <!-- Animated Cards -->
+  <section class="card-section">
+    <div class="card">
+      <img src="https://www.pxl-vision.com/hubfs/ISO%2027001.jpg" alt="Image 1">
+      <h3>Pannes</h3>
+      <p>Gérez efficacement les pannes avec des notifications et un suivi détaillé pour minimiser les temps d'arrêt.</p>
+    </div>
+    <div class="card">
+      <img src="https://www.shutterstock.com/shutterstock/photos/1181227630/display_1500/stock-photo-technical-support-customer-service-business-technology-internet-concept-1181227630.jpg" alt="Image 2">
+      <h3>Équipement</h3>
+      <p>Optimisez la gestion des équipements informatiques en gardant un inventaire à jour et accessible.</p>
+    </div>
+    <div class="card">
+      <img src="https://avatars.mds.yandex.net/i?id=a0c08edfd562947ab2bd022b92ae9b38c5e84755-5870018-images-thumbs&n=13" alt="Image 3">
+      <h3>Ticket</h3>
+      <p>Facilitez la gestion des tickets de support avec une vue d'ensemble des problèmes et des solutions proposées.</p>
+    </div>
+  </section>
+
+  <div class="container-fluid my-5">
+    <!-- First Section -->
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-6 text-left">
+        <h1 class="display-4 font-weight-bold">Empowering Possibilities with IT Solutions</h1>
+        <p class="lead">
+          Being a trusted IT solutions provider in the industry, CDN Software takes pride in serving businesses globally.
+          Our cutting-edge technologies and range of IT services fulfill the business needs. We build complete IT Solutions
+          that solve business problems and give seamless and easy operations. We keep our customers staying ahead and competitive
+          in the market.
+        </p>
+      </div>
+      <div class="col-lg-6 text-center">
+        <img src="assets/IMG/technicien.jpg" alt="IT Solutions Image" class="img-fluid">
+      </div>
+    </div>
+
+    <!-- Second Section -->
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-6 text-center">
+        <img src="assets/IMG/employeur1.webp" alt="Consulting Service Image" class="img-fluid">
+      </div>
+      <div class="col-lg-6 text-left">
+        <h2 class="font-weight-bold">Expert IT Consulting Service</h2>
+        <p class="lead">
+          CDN IT consulting service helps you to navigate the stack of technologies and solutions. Our lead consultants' guide provides you
+          with the competitive insights that can transform your business operations. We help you to make the optimized decisions for business
+          that result in growth and success.
+        </p>
+        <ul class="list-unstyled lead">
+          <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Reduces Downtime</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Minimize operations cost</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Updated tech trends and solutions</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Advanced security</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Customized Strategies</li>
+          <li class="mb-2"><i class="fas fa-check-circle text-primary"></i> Seamless Integration</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Third Section -->
+    <div class="row align-items-center">
+      <div class="col text-center">
+        <h2 class="font-weight-bold">How CDN Can Help Your Business</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/2hLLxCEbcTk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <p class="lead mt-4">
+          As a leading business solutions provider, CDN helps you in improving business process efficiencies. We improve business outcomes
+          through IT Solutions. Use the expertise and significant tech skills of the IT Consultants at CDN to build a robust IT framework.
+          Digitize your business operations in alignment with your business objectives, whether you are a startup or an enterprise.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- Services Section -->
   <section class="services-section" id="services">
-    <app-services></app-services>
+    <h2><a href="/app/navbar/navbar.component.css/" class="btn">Our Services</a></h2>
+
+
+    <div class="services-cards">
+      <div class="service-card">
+        <img src="assets/IMG/pannes.webp" alt="Gestion des Pannes">
+        <h3 class="serv">Gestion des Pannes</h3>
+        <p>Nous assurons une gestion efficace des pannes pour minimiser les interruptions de service et garantir une réponse rapide.</p>
+      </div>
+      <div class="service-card">
+        <img src="assets/IMG/ticket.jpg" alt="Gestion des Tickets">
+        <h3 class="serv">Gestion des Tickets</h3>
+        <p>Notre système de gestion des tickets vous permet de suivre les demandes et les problèmes de manière organisée et efficace.</p>
+      </div>
+      <div class="service-card">
+        <img src="assets/IMG/equip.avif" alt="Gestion des Équipements">
+        <h3 class="serv">Gestion des Équipements</h3>
+        <p>Nous proposons une gestion complète des équipements pour assurer leur bon fonctionnement et leur disponibilité.</p>
+      </div>
+    </div>
   </section>
 
-  <section class="about-us-section" id="about-us">
-    <app-about-us></app-about-us>
+
+
+
+  <!-- Admin, Technician, User Cards -->
+  <section class="role-cards-section">
+    <div class="role-card admin-card">
+      <img src="assets/IMG/admin.webp" alt="Admin">
+      <div class="card-content">
+        <h3><a href="/login" class="btn">Admin</a></h3>
+        <p>Manage all aspects of the system, including user management and settings.</p>
+
+      </div>
+    </div>
+    <div class="role-card technician-card">
+      <img src="assets/IMG/tech.jpg" alt="Technician">
+      <div class="card-content">
+        <h3><a href="/login" class="btn">Technicien</a></h3>
+        <p>Handle technical issues, maintenance, and system troubleshooting.</p>
+
+      </div>
+    </div>
+    <div class="role-card user-card">
+      <img src="assets/IMG/employeur2.webp" alt="User">
+      <div class="card-content">
+        <h3><a href="/login" class="btn">Employeur</a></h3>
+        <p>Access your account, view information, and manage personal settings.</p>
+
+      </div>
+    </div>
   </section>
 
-  <section class="contact-section" id="contact">
-    <app-contact></app-contact>
-  </section>
 
   <footer>
     <app-footer></app-footer>

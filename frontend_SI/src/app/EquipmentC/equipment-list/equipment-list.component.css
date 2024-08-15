@@ -3,12 +3,12 @@
 /* General Styling */
 div {
   padding: 20px;
-  background-color: #fbbf24; /* Use the specified color */
+  background-color: #FF5722CB; /* Use the specified color */
   border-radius: 8px;
 }
 
 h2 {
-  color: #1e3a8a; /* Use the specified color */
+  color: #2C607591; /* Use the specified color */
   font-size: 24px;
 }
 
@@ -16,7 +16,7 @@ h2 {
 input {
   padding: 10px;
   margin-bottom: 20px;
-  border: 2px solid #1e3a8a; /* Border color */
+  border: 2px solid #2C607591; /* Border color */
   border-radius: 4px;
   font-size: 16px;
 }
@@ -29,7 +29,7 @@ table {
 }
 
 thead {
-  background-color: #1e3a8a; /* Header background color */
+  background-color: #2C607591; /* Header background color */
   color: white;
 }
 
@@ -45,7 +45,7 @@ tr:nth-child(even) {
 
 button {
   padding: 8px 12px;
-  background-color: #1e3a8a; /* Button background color */
+  background-color: #2C607591; /* Button background color */
   color: white;
   border: none;
   border-radius: 4px;
@@ -54,20 +54,20 @@ button {
 }
 
 button:hover {
-  background-color: #fbbf24; /* Button hover color */
-  color: #1e3a8a; /* Button hover text color */
+  background-color: #FF5722CB; /* Button hover color */
+  color: #2C607591; /* Button hover text color */
 }
 
 a {
-  color: #1e3a8a; /* Link color */
+  color: #2C607591; /* Link color */
   text-decoration: none;
   padding: 8px 12px;
   border-radius: 4px;
 }
 
 a:hover {
-  background-color: #fbbf24; /* Link hover background color */
-  color: #1e3a8a; /* Link hover text color */
+  background-color: #FF5722CB; /* Link hover background color */
+  color: #2C607591; /* Link hover text color */
 }
 
 @keyframes fadeIn {
@@ -84,7 +84,7 @@ tr {
 }
 /* Header Styling */
 h2 {
-  color: #1e3a8a; /* Header color */
+  color: #2C607591; /* Header color */
   font-size: 24px;
 }
 
@@ -92,7 +92,7 @@ h2 {
 .add-button {
   display: inline-flex;
   align-items: center;
-  background-color: #1e3a8a; /* Button background color */
+  background-color: #2C607591; /* Button background color */
   color: white;
   text-decoration: none;
   padding: 10px 15px;
@@ -105,6 +105,6 @@ h2 {
 }
 
 .add-button:hover {
-  background-color: #fbbf24; /* Button hover color */
-  color: #1e3a8a; /* Button hover text color */
+  background-color: rgba(255, 87, 34, 0.8); /* Button hover color */
+  color: #2C607591; /* Button hover text color */
 }

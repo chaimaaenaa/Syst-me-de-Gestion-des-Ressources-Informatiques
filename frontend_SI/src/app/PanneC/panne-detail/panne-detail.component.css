@@ -1,15 +1,15 @@
 /* Container Styling */
 div {
   padding: 20px;
-  background-color: #fbbf24; /* Background color */
+  background-color: #FF5722CB; /* Background color */
   border-radius: 8px;
-  border: 1px solid #1e3a8a; /* Border color */
+  border: 1px solid #2C607591; /* Border color */
   margin-bottom: 20px;
 }
 
 /* Title Styling */
 h2 {
-  color: #1e3a8a; /* Title color */
+  color: #2C607591; /* Title color */
   font-size: 24px;
   margin-bottom: 10px;
 }
@@ -23,12 +23,12 @@ p {
 
 /* Strong Element Styling */
 strong {
-  color: #1e3a8a; /* Strong text color */
+  color: #2C607591; /* Strong text color */
 }
 
 /* Subheading Styling */
 h3 {
-  color: #1e3a8a; /* Subheading color */
+  color: #2C607591; /* Subheading color */
   font-size: 20px;
   margin-top: 20px;
   margin-bottom: 10px;

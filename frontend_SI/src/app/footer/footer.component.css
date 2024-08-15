@@ -1,36 +1,49 @@
+/* Footer Styles */
 .site-footer {
-  background-color: rgba(44, 96, 117, 0.57);
+  background-color: rgba(44, 96, 117, 0.8); /* Darker background for better contrast */
   color: #fff;
-  padding: 20px 0;
+  padding: 40px 0;
 }
 
 .footer-container {
+  display: flex;
+  flex-direction: row; /* Align items horizontally */
+  justify-content: space-between; /* Space between sections */
+  align-items: flex-start; /* Align to the top */
+  max-width: 1200px; /* Limit the width for better readability */
+  margin: 0 auto;
+}
+
+.footer-logo {
+  flex: 1; /* Take up a portion of the space */
+  text-align: left;
+}
+
+.footer-logo img {
+  max-width: 150px; /* Increased logo size */
+  margin-bottom: 20px;
+}
+
+.footer-info {
+  flex: 3; /* Allow more space for the footer content */
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
-.footer-logo img {
-  max-width: 100px;
-}
-
-.footer-info {
-  display: flex;
-  justify-content: space-around;
-  flex: 1;
-}
-
 .footer-section {
+  flex: 1;
   margin: 10px;
+  min-width: 200px; /* Ensures sections don't shrink too much */
 }
 
 .footer-section h3 {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  font-size: 1.2em; /* Slightly larger headings */
 }
 
-.footer-section p,
-.footer-section ul {
-  margin: 5px 0;
+.footer-section p {
+  margin: 10px 0;
 }
 
 .footer-section ul {
@@ -39,7 +52,7 @@
 }
 
 .footer-section ul li {
-  margin: 5px 0;
+  margin: 8px 0;
 }
 
 .footer-section ul li a {
@@ -47,17 +60,28 @@
   text-decoration: none;
 }
 
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
 .social-icons {
   display: flex;
   gap: 15px;
+  margin-top: 15px;
 }
 
 .social-icon {
   color: #fff;
-  font-size: 1.5em;
+  font-size: 1.5em; /* Larger icons */
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #ddd; /* Lighter color on hover */
 }
 
 .footer-bottom {
   text-align: center;
   margin-top: 20px;
+  font-size: 0.9em;
 }

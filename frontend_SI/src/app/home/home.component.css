@@ -1,23 +1,18 @@
 .home-container {
   text-align: center;
   color: #fff;
-  background-color: #1e3a8a;
-  height: 100vh;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  background-color: #fbbf24;
-}
+
+
 
 .logo h1 {
   font-size: 2.5rem;
-  color: #1e3a8a;
+  color: #2C607591;
 }
 
 .nav-links a {
@@ -28,85 +23,271 @@
 }
 
 .nav-links .login-btn {
-  background-color: #3b82f6;
+  background-color: #2C607591;
   padding: 10px 20px;
   border-radius: 5px;
 }
 
 .nav-links .login-btn:hover {
-  background-color: #2563eb;
+  background-color: #2C607591;
 }
 
+/* Hero Section Styling */
 .hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex: 1;
+  overflow: hidden;
 }
 
-.hero-text h2 {
-  font-size: 3rem;
+.hero-content {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  z-index: 10;
+  color: #fff;
+  text-shadow: 2px 2px 8px #ffffff;
+}
+#start{
+  background-color: #2779bd;
+}
+
+.hero-title {
+  font-size: 2.5rem;
   margin-bottom: 10px;
 }
 
-.hero-text p {
+.hero-paragraph {
+  font-size: 1.2rem;
+  max-width: 300px;
+}
+
+.hero-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(5px);
+  opacity: 0.7;
+}
+
+.hero-overlay {
+  position: absolute;
+  text-align: center;
+}
+
+.hero-overlay h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 2px 2px 8px #000;
+}
+
+.hero-overlay p {
+  font-size: 1.5rem;
+  color: #fff;
+  text-shadow: 2px 2px 8px #000;
+}
+
+/* Card Section Styling */
+.card-section {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+  gap: 20px;
+}
+
+.card {
+  background-color: rgba(44, 96, 117, 0.57);
+  border-radius: 10px;
+  width: 300px;
+  padding: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  text-align: center;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card h3 {
+  margin: 15px 0 10px;
+  color: #fff;
   font-size: 1.5rem;
 }
 
-.hero-animation {
-  position: relative;
-  width: 50%;
-  max-width: 1200px;
-  height: 400px;
-  overflow: hidden;
-  border-radius: 15px;
+.card p {
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
-.hero-animation img {
-  position: absolute;
-  top: 0;
-  left: 0;
+/* Services Section */
+/* Services Section */
+.services-section {
+  padding: 60px 0;
+  background-color: #2C607591;
+  text-align: center;
+}
+
+.services-section h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: rgba(9, 30, 55, 0.62);
+}
+
+.services-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.service-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+  text-align: center;
+}
+
+.service-card img {
   width: 100%;
-  height: 100%;
-  opacity: 0;
-  animation: fadeInOut 12s infinite;
+  height: auto;
   object-fit: cover;
 }
 
-.hero-animation img:nth-child(1) {
-  animation-delay: 0s;
+.service-card h3 {
+  font-size: 1.5rem;
+  margin: 15px 0;
 }
 
-.hero-animation img:nth-child(2) {
-  animation-delay: 4s;
+.service-card p {
+  padding: 0 20px;
+  color: #333;
+  font-size: 1rem;
 }
 
-.hero-animation img:nth-child(3) {
-  animation-delay: 8s;
+
+/* IT Management Section */
+.it-management-section {
+  padding: 60px 0;
+  background-color: #2C607591;
 }
 
-@keyframes fadeInOut {
-  0%, 100% { opacity: 0; }
-  25%, 75% { opacity: 1; }
+.it-management-section h2 {
+  font-size: 2.5rem;
+  color: #fff;
 }
 
-.nav-links a {
-  cursor: pointer;
+.it-management-section p {
+  font-size: 1.2rem;
+  color: #fff;
 }
-.logo {
+
+/* Role Cards Section */
+.role-cards-section {
   display: flex;
-  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
 }
 
-.logo img {
-  height: 50px;
-  width: auto;
+.role-card {
+  background-color: #2C607591;
+  border-radius: 10px;
+  margin: 0 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.role-card:hover {
+  transform: scale(1.1);
+}
+
+.role-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.role-card h3 {
+  margin: 10px 0;
+  color: #fff;
+}
+
+.admin-card {
+  border: 3px solid #2C607591;
+}
+
+.technician-card {
+  border: 3px solid #3b82f6;
+}
+
+.user-card {
+  border: 3px solid #2C607591;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+p{
+  color: black;
+}
+
+h1, h2 {
+  color: #2C607591;
+}
+
+.lead {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.text-primary {
+  color: #2C607591 !important;
+}
+
+.fas {
   margin-right: 10px;
 }
 
-.logo h1 {
-  font-size: 1.5rem;
-  margin: 0;
-  color: #fff;
+.container-fluid {
+  padding: 60px 20px;
+}
+
+.row {
+  margin-bottom: 40px;
+}
+
+.display-4 {
+  font-size: 2.5rem;
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}
+.serv{
+  color: #2C607591;
+  font-family: 'Arial', sans-serif;
+  font-size: small;
+  font-style: italic;
+
 }

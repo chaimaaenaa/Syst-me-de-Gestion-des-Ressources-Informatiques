@@ -1,13 +1,13 @@
 /* Container Styling */
 .admin-users-container {
   padding: 20px;
-  background-color: #fbbf24; /* Background color */
+  background-color: rgba(255, 196, 88, 0.8); /* Background color */
   border-radius: 8px;
 }
 
 /* Header Styling */
 h2 {
-  color: #1e3a8a; /* Header color */
+  color: #2C607591; /* Header color */
   font-size: 24px;
 }
 
@@ -19,7 +19,7 @@ h2 {
 }
 
 .admin-users-table thead {
-  background-color: #1e3a8a; /* Header background color */
+  background-color: #2C607591; /* Header background color */
   color: white;
 }
 
@@ -47,11 +47,11 @@ h2 {
 }
 
 .btn-info.admin-action-button {
-  background-color: #1e3a8a; /* Info button color */
+  background-color: #2C607591; /* Info button color */
 }
 
 .btn-danger.admin-action-button {
-  background-color: #e53e3e; /* Danger button color */
+  background-color: rgba(255, 196, 88, 0.8); /* Danger button color */
 }
 
 .admin-action-button:hover {
@@ -61,7 +61,7 @@ h2 {
 /* No Results Styling */
 .no-results {
   margin-top: 20px;
-  color: #e53e3e;
+  color: rgba(255, 196, 88, 0.8);
 }
 
 /* Media Queries for Responsiveness */
@@ -93,7 +93,7 @@ h2 {
 .add-button {
   display: inline-flex;
   align-items: center;
-  background-color: #1e3a8a; /* Button background color */
+  background-color: #2C607591; /* Button background color */
   color: white;
   text-decoration: none;
   padding: 10px 15px;
@@ -106,18 +106,18 @@ h2 {
 }
 
 .add-button:hover {
-  background-color: #fbbf24; /* Button hover color */
-  color: #1e3a8a; /* Button hover text color */
+  background-color: #FF5722CB; /* Button hover color */
+  color: #2C607591; /* Button hover text color */
 }
 
 
 .add-user-button:hover {
-  background-color: #fbbf24; /* Button hover color */
-  color: #1e3a8a; /* Button hover text color */
+  background-color: #FF5722CB; /* Button hover color */
+  color: #2C607591; /* Button hover text color */
 }
 /* Styling for the "Supprimer" button */
 .delete-button {
-  background-color: #1e3a8a; /* Red background color */
+  background-color: #2C607591; /* Red background color */
   color: white; /* White text color */
   border-radius: 4px; /* Rounded corners */
   padding: 8px 16px; /* Padding inside the button */
@@ -128,7 +128,7 @@ h2 {
 }
 
 .delete-button:hover {
-  background-color: #1e3a8a; /* Darker red on hover */
+  background-color: #2C607591; /* Darker red on hover */
   transform: scale(1.05); /* Slightly enlarge the button on hover */
-  color: #fbbf24; /* Change text color on hover */
+  color: #FF5722CB; /* Change text color on hover */
 }

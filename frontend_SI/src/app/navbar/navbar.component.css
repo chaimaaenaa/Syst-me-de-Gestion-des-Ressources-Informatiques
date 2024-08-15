@@ -18,7 +18,7 @@
 }
 
 .navbar-nav .nav-link:hover {
-  color: #6c24fb !important; /* Hover Color: Yellow */
+  color: rgba(9, 30, 55, 0.62) !important; /* Hover Color: Yellow */
 }
 
 .btn-outline-light {

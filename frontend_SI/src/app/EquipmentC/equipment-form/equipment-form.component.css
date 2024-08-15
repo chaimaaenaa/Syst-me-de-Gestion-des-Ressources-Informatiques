@@ -9,7 +9,7 @@
 }
 
 .title {
-  color: #1e3a8a;
+  color: #2C607591;
   text-align: center;
   margin-bottom: 20px;
   font-size: 1.5rem;
@@ -27,27 +27,27 @@
 label {
   display: block;
   margin-bottom: 5px;
-  color: #1e3a8a;
+  color: #2C607591;
   font-weight: bold;
 }
 
 input, select {
   width: 100%;
   padding: 8px;
-  border: 1px solid #1e3a8a;
+  border: 1px solid #2C607591;
   border-radius: 4px;
   transition: border-color 0.3s ease;
 }
 
 input:focus, select:focus {
   outline: none;
-  border-color: #fbbf24;
+  border-color: rgba(110, 197, 110, 0.64);
   box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.2);
 }
 
 .submit-btn {
-  background-color: #fbbf24;
-  color: #1e3a8a;
+  background-color: rgba(110, 197, 110, 0.64);
+  color: #2C607591;
   border: none;
   padding: 10px 15px;
   border-radius: 4px;
@@ -57,7 +57,7 @@ input:focus, select:focus {
 }
 
 .submit-btn:hover {
-  background-color: #f59e0b;
+  background-color: rgba(110, 197, 110, 0.64);
 }
 
 .submit-btn:active {

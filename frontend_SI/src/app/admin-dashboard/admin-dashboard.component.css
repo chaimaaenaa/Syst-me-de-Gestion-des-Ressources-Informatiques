@@ -5,7 +5,7 @@
 
 .sidebar {
   width: 250px;
-  background-color: #1e3a8a;
+  background-color: #2C607591;
   color: white;
   height: 100vh;
   padding: 20px;
@@ -37,7 +37,7 @@
 
 .sidebar ul li a:hover,
 .sidebar ul li a.active {
-  background-color: #2563eb;
+  background-color: #2C607591;
 }
 
 .content {
@@ -51,7 +51,7 @@
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
-  background-color: #fbbf24;
+  background-color: #FF5722CB;
   color: white;
   border: none;
   border-radius: 5px;
@@ -61,7 +61,7 @@
 }
 
 .logout-button:hover {
-  background-color: #fbbf24;
+  background-color: #FF5722CB;
 }
 /* admin-dashboard.component.css */
 .info-button {
@@ -108,7 +108,7 @@
   width: 100%;
   padding: 10px;
   margin-top: 20px;
-  background-color: #fbbf24;
+  background-color: #FF5722CB;
   color: white;
   border: none;
   border-radius: 5px;
@@ -118,7 +118,7 @@
 }
 
 .close-button:hover {
-  background-color: #fbbf24;
+  background-color: #FF5722CB;
 }
 /* Welcome Section Styles */
 .welcome-section {
@@ -130,7 +130,7 @@
 }
 
 .welcome-section h1 {
-  color: #1e3a8a;
+  color: #2C607591;
   margin-bottom: 20px;
 }
 
@@ -156,7 +156,7 @@
 .stat-card p {
   font-size: 1.5rem;
   margin: 10px 0 0;
-  color: #1e3a8a;
+  color: #2C607591;
 }
 
 /* Modal Styles */
