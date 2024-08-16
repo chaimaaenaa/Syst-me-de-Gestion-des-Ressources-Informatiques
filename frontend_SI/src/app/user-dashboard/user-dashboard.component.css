@@ -1,0 +1,63 @@
+/* General Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+
+/* Card Styles */
+.card {
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  margin-bottom: 20px;
+}
+
+/* Navbar Styles */
+.navbar-nav .nav-link {
+  font-size: 16px;
+}
+
+.navbar-nav .nav-link i {
+  margin-right: 5px;
+}
+
+/* Table Styles */
+.table th, .table td {
+  vertical-align: middle;
+}
+
+.table thead th {
+  font-weight: bold;
+}
+
+.table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Welcome Section */
+h2.text-primary {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+}
+
+h2.text-primary i {
+  margin-right: 10px;
+}
+
+h3 {
+  margin-top: 10px;
+}
+
+/* Button Styles */
+.btn-primary {
+  display: flex;
+  align-items: center;
+}
+
+.btn-primary i {
+  margin-right: 8px;
+}

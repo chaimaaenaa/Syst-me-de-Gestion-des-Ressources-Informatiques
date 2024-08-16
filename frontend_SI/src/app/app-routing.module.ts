@@ -29,8 +29,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'contact', component: ContactComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Default route
-  { path: '**', redirectTo: '/home' } ,// Wildcard route for a 404 page
+
   { path: 'user-dashboard', component: UserDashboardComponent },
   { path: 'admin-dashboard', component: AdminDashboardComponent },
   { path: 'technician-dashboard', component: TechnicianDashboardComponent },
